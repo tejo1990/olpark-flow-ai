@@ -1,7 +1,8 @@
 # Olpark Flow AI — 올림픽공원 공연·날씨·입출차 3D 혼잡 예측 & 게이트·ESG 분산 플랫폼
 
 > **「2026년 한국체육산업개발(주) 공공데이터 활용 경진대회」 출품작**  
-> **라이브 서비스 URL**: `[Cloudflare Pages 배포 후 입력 — 예: https://olpark-flow-ai.pages.dev]`  
+> **라이브 서비스 URL**: https://olpark-flow-ai.pages.dev *(실시간 API: `/api/realtime-parking`)*  
+> **소스코드 저장소**: https://github.com/tejo1990/olpark-flow-ai  
 > **라이선스**: MIT (서약서 제6항 원천 소스 제공 및 2028년 무중단 운영 완벽 대응)
 
 ---
