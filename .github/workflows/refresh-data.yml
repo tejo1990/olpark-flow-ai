@@ -1,0 +1,40 @@
+name: Daily Public Data Snapshot Refresh (2028 Zero-Cost Ops)
+
+on:
+  schedule:
+    # Runs daily at 06:00 KST (21:00 UTC)
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch live KSPO&CO real-time parking snapshot
+        run: |
+          python -X utf8 pipeline/fetch_openapi.py --only realtime_parking
+          mkdir -p web/public/data
+          cp data/api/realtime_parking.json web/public/data/realtime_parking.json
+
+      - name: Commit updated snapshot if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/api/realtime_parking.json web/public/data/realtime_parking.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): refresh live parking snapshot ($(date -u +'%Y-%m-%d'))"
+            git push
+          else
+            echo "No snapshot changes to commit."
+          fi

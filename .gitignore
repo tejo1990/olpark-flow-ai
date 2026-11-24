@@ -1,0 +1,22 @@
+﻿# Secrets (NEVER commit)
+.env
+.env.local
+.env.*.local
+
+# Heavy raw 3D CAD zips (>100MB) & unneeded raw/test API dumps
+data/3d_raw/
+data/api/*_test.*
+data/api/lost_items.*
+data/api/concerts_kr.json
+data/api/linked_2025.json
+data/api/rentals.json
+data/api/weather_olympicpark_hourly.json
+
+# Build & runtime caches
+web/node_modules/
+web/dist/
+web/.wrangler/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
