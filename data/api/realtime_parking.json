@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-11-26T12:16:03.612959+09:00",
+  "fetched_at": "2026-11-27T12:20:22.516178+09:00",
   "endpoint": "https://www.ksponco.or.kr/online/main/parkingorsApi.do",
-  "parking_sum": 2067,
+  "parking_sum": 2148,
   "raw": [
     {
-      "parking_sum": 2067
+      "parking_sum": 2148
     }
   ]
 }
